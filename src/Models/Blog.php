@@ -5,7 +5,7 @@ class Blog {
     private int $id;
     private string $title;
     private string $content;
-    private int $date;
+    private string $date;
     private string $urlImg;
 
 
@@ -13,7 +13,7 @@ class Blog {
         int $id, 
         string $title, 
         string $content,
-        int $date,
+        string $date,
         string $urlImg) {
 
         $this->id = $id;
@@ -129,6 +129,15 @@ class Blog {
             $this->date, $this->urlImg);        
     }
 
+    public static function convertArrayToObj (array $attributes) {
+        return new Blog (
+            1, 
+            $attributes['title'], 
+            $attributes['content'],
+            date('m/d/Y', $attributes['date']),
+            $attributes['image'] 
+        );
+    }
 
         
 
