@@ -1,6 +1,5 @@
 <?php
-include "../libs/parser.php";
-include "../Models/Blog.php"; 
+require_once "libs/parser.php";
 
 if (!is_null(filter_input(INPUT_GET, "viewBlog"))) {
 
@@ -9,7 +8,7 @@ if (!is_null(filter_input(INPUT_GET, "viewBlog"))) {
 
 }
 // read json file
-$blog = readJsonFile("../../data/post_".$blogId.".json");
+$blog = readJsonFile("../data/post_".$blogId.".json");
 
 ?>
 <!DOCTYPE html>

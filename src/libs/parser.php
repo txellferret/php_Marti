@@ -1,6 +1,6 @@
 <?php
 
-include "Models/Blog.php";
+require_once "Models/Blog.php";
 // Path to files
 const pathData =  "../data";
 
@@ -14,7 +14,7 @@ function getAllBlogs ($dir= pathData) {
         $strJsonFileContents = file_get_contents($fileInfo-> getPathname());
         $arrayFile = json_decode($strJsonFileContents, true);
         $arrayFile['id'] = basename($fileInfo-> getPathname());
-        var_dump($arrayFile);
+
         //TODO- regex to get file id
         $blogObj = Blog::convertArrayToObj(json_decode($strJsonFileContents, true));
         array_push($blogObjs, $blogObj);
@@ -27,5 +27,14 @@ function getAllBlogs ($dir= pathData) {
 function readJsonFile ($path) {
     $contents = file_get_contents($path);
     return Blog::convertArrayToObj(json_decode($contents, true));
+
+}
+
+function sortBlogsByDate() {
+
+}
+
+function sortBlogsByTitle(&$blogObjs) {
+    
 
 }
